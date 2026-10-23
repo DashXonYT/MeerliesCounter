@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zähler-App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <h1>Meerlies-Counter</h1>
+      <p class="subtitle">Wie war es heute?</p>
+    </header>
+
+    <main class="counter-grid">
+      <!-- Zustand 1 -->
+      <section class="counter-card card-state-1">
+        <h2 class="card-title">Alle sind happy</h2>
+        <div class="counter-value" id="count-1">0</div>
+        <div class="button-row">
+          <button type="button" class="btn btn-decrement" id="btn-dec-1" aria-label="Zustand 1 verringern">-1</button>
+          <button type="button" class="btn btn-increment" id="btn-inc-1" aria-label="Zustand 1 erhöhen">+1</button>
+        </div>
+      </section>
+
+      <!-- Zustand 2 -->
+      <section class="counter-card card-state-2">
+        <h2 class="card-title">Meelies-Beef</h2>
+        <div class="counter-value" id="count-2">0</div>
+        <div class="button-row">
+          <button type="button" class="btn btn-decrement" id="btn-dec-2" aria-label="Zustand 2 verringern">-1</button>
+          <button type="button" class="btn btn-increment" id="btn-inc-2" aria-label="Zustand 2 erhöhen">+1</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Ausgeglichenheits-Skala -->
+    <section class="scale-card hidden" id="scale-card">
+      <div class="scale-header">
+        <span class="scale-label-good">😄</span>
+        <span class="scale-title" id="scale-status">Noch keine Daten</span>
+        <span class="scale-label-bad">😡</span>
+      </div>
+
+      <div class="scale-bar-container">
+        <div class="scale-track">
+          <div class="scale-center-line" title="Mitte (50%)"></div>
+          <div class="scale-pointer" id="scale-pointer" style="left: 50%;"></div>
+        </div>
+      </div>
+
+      <div class="scale-footer">
+        <span class="scale-stat-good" id="percent-state-1">0%</span>
+        <span class="scale-stat-bad" id="percent-state-2">0%</span>
+      </div>
+    </section>
+
+    <footer class="app-footer">
+      <div class="total-display">
+        Gesamt: <strong id="total-count">0</strong>
+      </div>
+      <button type="button" class="btn-reset" id="btn-reset">Zähler zurücksetzen</button>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

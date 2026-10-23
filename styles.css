@@ -1,0 +1,385 @@
+:root {
+  --bg-color: #f4f6f8;
+  --card-bg: #ffffff;
+  --text-main: #1f2937;
+  --text-muted: #6b7280;
+  
+  --primary-color: #41ea2a;
+  --primary-hover: #b4faa8;
+  
+  --state1-color: #21cf0a;
+  --state1-bg: #e8f5e7;
+  --state1-border: #bae6fd;
+  
+  --state2-color: #e11d48;
+  --state2-bg: #fff1f2;
+  --state2-border: #fecdd3;
+  
+  --radius: 16px;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.app-header {
+  text-align: center;
+}
+
+.app-header h1 {
+  font-size: 3.0rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.counter-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 0.75rem;
+  }
+
+  .app-container {
+    gap: 1rem;
+  }
+
+  .app-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .counter-grid {
+    grid-template-columns: 1fr 1fr; /* Bleibt auf dem Handy nebeneinander */
+    gap: 0.65rem;
+  }
+
+  .counter-card {
+    padding: 1rem 0.5rem;
+  }
+
+  .card-title {
+    font-size: 0.95rem;
+    min-height: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .counter-value {
+    font-size: 2.6rem;
+    padding: 0.5rem 0;
+  }
+
+  .button-row {
+    gap: 0.4rem;
+  }
+
+  .btn {
+    padding: 0.75rem 0.35rem;
+    font-size: 1rem;
+  }
+}
+
+.counter-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 2px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card-state-1 {
+  background: var(--state1-bg);
+  border-color: var(--state1-border);
+}
+
+.card-state-2 {
+  background: var(--state2-bg);
+  border-color: var(--state2-border);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.card-state-1 .card-title {
+  color: var(--state1-color);
+}
+
+.card-state-2 .card-title {
+  color: var(--state2-color);
+}
+
+.counter-value {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  padding: 1rem 0;
+  user-select: none;
+}
+
+.card-state-1 .counter-value {
+  color: var(--state1-color);
+}
+
+.card-state-2 .counter-value {
+  color: var(--state2-color);
+}
+
+.button-row {
+  display: flex;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.btn {
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 0.85rem 1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: filter 0.1s ease, transform 0.08s ease;
+  touch-action: manipulation;
+  user-select: none;
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+/* Verringern Button (-1) */
+.btn-decrement {
+  flex: 0.5;
+  background-color: #e5e7eb;
+  color: #4b5563;
+}
+
+.btn-decrement:hover {
+  filter: brightness(0.95);
+}
+
+/* Erhöhen Button (+1) - Hervorgehoben für schnelles Klicken */
+.btn-increment {
+  flex: 2;
+  color: #ffffff;
+}
+
+.card-state-1 .btn-increment {
+  background-color: var(--state1-color);
+}
+
+.card-state-1 .btn-increment:hover {
+  filter: brightness(0.9);
+}
+
+.card-state-2 .btn-increment {
+  background-color: var(--state2-color);
+}
+
+.card-state-2 .btn-increment:hover {
+  filter: brightness(0.9);
+}
+
+/* Ausgeglichenheits-Skala */
+.scale-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.scale-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.scale-label-good {
+  color: #16a34a;
+  font-size: 60px;
+}
+
+.scale-label-bad {
+  color: #dc2626;
+  font-size: 60px;
+}
+
+.scale-title {
+  color: var(--text-main);
+  font-weight: 700;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.scale-bar-container {
+  position: relative;
+  padding: 0.6rem 0;
+}
+
+.scale-track {
+  position: relative;
+  height: 18px;
+  border-radius: 999px;
+  background: linear-gradient(to right, #22c55e 0%, #84cc16 35%, #eab308 50%, #f97316 65%, #ef4444 100%);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.scale-center-line {
+  position: absolute;
+  left: 50%;
+  top: -4px;
+  bottom: -4px;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateX(-50%);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+  border-radius: 1px;
+  z-index: 1;
+}
+
+.scale-pointer {
+  position: absolute;
+  top: 50%;
+  width: 24px;
+  height: 24px;
+  background: #ffffff;
+  border: 3px solid #1f2937;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: left 0.35s cubic-bezier(0.34, 1.3, 0.64, 1);
+  z-index: 2;
+}
+
+.scale-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.scale-stat-good {
+  color: #16a34a;
+}
+
+.scale-stat-bad {
+  color: #dc2626;
+}
+
+/* Footer / Steuerbereich */
+.app-footer {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.5rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.total-display {
+  font-size: 1.1rem;
+  color: var(--text-main);
+}
+
+.total-display strong {
+  font-size: 1.3rem;
+  color: var(--primary-color);
+}
+
+.btn-reset {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid #d1d5db;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  font-weight: 200;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  touch-action: manipulation;
+}
+
+.btn-reset:hover {
+  background: #fee2e2;
+  color: #b91c1c;
+  border-color: #fca5a5;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Fliegende Smileys Animation */
+@keyframes flyUpAndFade {
+  0% {
+    transform: translateY(0) scale(0.6) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-50vh) scale(1.2) rotate(15deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-110vh) scale(0.9) rotate(-25deg);
+    opacity: 0;
+  }
+}
+
+.flying-emoji {
+  position: fixed;
+  bottom: -20px;
+  pointer-events: none;
+  user-select: none;
+  z-index: 9999;
+  animation: flyUpAndFade 2.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
