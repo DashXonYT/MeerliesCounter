@@ -272,8 +272,8 @@ function openBlameModal(mode = 'inc') {
   blameSelectionGrid.innerHTML = '';
 
   if (mode === 'inc') {
-    modalBlameTitle.textContent = '💥 Wer ist schuld?';
-    modalBlameSubtitle.textContent = 'Wähle aus, wer den Beef verursacht hat:';
+    modalBlameTitle.textContent = '💥 Wer ist Schuld?';
+    modalBlameSubtitle.textContent = 'Wähle aus, wer etwas verkackt hat';
   } else {
     modalBlameTitle.textContent = '💥 Beef verringern (-1)';
     modalBlameSubtitle.textContent = 'Bei wem soll 1 Vorfall abgezogen werden?';
