@@ -56,13 +56,95 @@
       </div>
     </section>
 
+    <!-- Wer hat Schuld? (Beef-Verteilung auf 4 Personen) -->
+    <section class="blame-card" id="blame-card">
+      <div class="blame-header">
+        <div class="blame-title-group">
+          <h2 class="blame-title">Wer ist Schuld? 🥊</h2>
+        </div>
+        <button type="button" class="btn-edit-names" id="btn-open-edit-names" title="Namen der 4 Personen anpassen">
+          ✏️ Namen anpassen
+        </button>
+      </div>
+
+      <div class="persons-grid" id="persons-grid">
+        <!-- Wird dynamisch per JS gerendert -->
+      </div>
+    </section>
+
     <footer class="app-footer">
-      <div class="total-display">
-        Gesamt: <strong id="total-count">0</strong>
+      <div class="footer-left">
+        <div class="total-display">
+          Gesamt: <strong id="total-count">0</strong>
+        </div>
+        <div class="sync-indicator" id="sync-indicator" title="Status der Cloud-Synchronisation">
+          <span class="sync-dot" id="sync-dot"></span>
+          <span id="sync-text">Lokal (Offline)</span>
+        </div>
       </div>
       <button type="button" class="btn-reset" id="btn-reset">Zähler zurücksetzen</button>
     </footer>
   </div>
+
+  <!-- Modal: Wer ist schuld? -->
+  <div class="modal-overlay hidden" id="modal-blame" role="dialog" aria-modal="true" aria-labelledby="modal-blame-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-blame-title">💥 Wer ist schuld?</h3>
+        <button type="button" class="btn-close-modal" id="btn-close-blame" aria-label="Schließen">&times;</button>
+      </div>
+      <p class="modal-subtitle" id="modal-blame-subtitle">Wähle aus, wer den Beef verursacht hat:</p>
+
+      <div class="blame-selection-grid" id="blame-selection-grid">
+        <!-- 4 Auswahl-Buttons werden dynamisch gerendert -->
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="btn-cancel-blame">Abbrechen</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: 4 Personen benennen -->
+  <div class="modal-overlay hidden" id="modal-edit-names" role="dialog" aria-modal="true" aria-labelledby="modal-edit-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-edit-title">✏️ Personen benennen</h3>
+        <button type="button" class="btn-close-modal" id="btn-close-edit" aria-label="Schließen">&times;</button>
+      </div>
+      <p class="modal-subtitle">Trage hier die 4 Namen ein:</p>
+
+      <form id="form-edit-names" class="edit-names-form">
+        <div class="input-grid">
+          <div class="input-field">
+            <label for="input-person-0">Person 1</label>
+            <input type="text" id="input-person-0" maxlength="25" autocomplete="off" required>
+          </div>
+          <div class="input-field">
+            <label for="input-person-1">Person 2</label>
+            <input type="text" id="input-person-1" maxlength="25" autocomplete="off" required>
+          </div>
+          <div class="input-field">
+            <label for="input-person-2">Person 3</label>
+            <input type="text" id="input-person-2" maxlength="25" autocomplete="off" required>
+          </div>
+          <div class="input-field">
+            <label for="input-person-3">Person 4</label>
+            <input type="text" id="input-person-3" maxlength="25" autocomplete="off" required>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" id="btn-cancel-edit">Abbrechen</button>
+          <button type="submit" class="btn btn-primary-submit">Speichern</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Firebase SDK (Realtime Database Compat) -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
 
   <script src="script.js"></script>
 </body>
